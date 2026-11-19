@@ -1,0 +1,387 @@
+/* ==================================================
+   VOID CODEX — CORRUPT
+   BLACK RAIN / VIRUS DISTORTION
+   ================================================== */
+
+.faction-card--corrupt {
+  position: relative;
+  isolation: isolate;
+
+  --corrupt-red: 237, 65, 75;
+}
+
+/* Дождь находится под содержимым */
+
+.faction-card--corrupt .corrupt-rain-canvas {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+/* Содержимое карточки */
+
+.faction-card--corrupt .faction-toggle,
+.faction-card--corrupt .faction-details {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==================================================
+   СЛОЙ 1 — НЕСТАБИЛЬНОСТЬ ИЗОБРАЖЕНИЯ
+   ================================================== */
+
+.faction-card--corrupt::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+
+  pointer-events: none;
+  opacity: 0;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 8px,
+      rgba(255, 35, 55, 0.08) 8px 9px,
+      transparent 9px 15px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0 20%,
+      rgba(237, 30, 50, 0.12) 45%,
+      transparent 70% 100%
+    );
+
+  mix-blend-mode: screen;
+
+  animation: corrupt-image-drift 7.4s steps(1, end) infinite;
+}
+
+@keyframes corrupt-image-drift {
+  0%,
+  8%,
+  9%,
+  29%,
+  30%,
+  58%,
+  59%,
+  81%,
+  82%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) skewX(0);
+    clip-path: inset(0);
+  }
+
+  /* Короткое плавание изображения */
+
+  8.2% {
+    opacity: 0.65;
+    transform: translateX(2px) skewX(-0.6deg);
+    clip-path: inset(18% 0 60% 0);
+  }
+
+  8.6% {
+    opacity: 0.45;
+    transform: translateX(-3px) skewX(0.8deg);
+    clip-path: inset(20% 0 57% 0);
+  }
+
+  /* Искажение в середине */
+
+  29.2% {
+    opacity: 0.75;
+    transform: translateX(-4px) skewX(1deg);
+    clip-path: inset(42% 0 45% 0);
+  }
+
+  29.6% {
+    opacity: 0.5;
+    transform: translateX(3px) skewX(-0.8deg);
+    clip-path: inset(46% 0 40% 0);
+  }
+
+  /* Нижний разрыв */
+
+  58.2% {
+    opacity: 0.7;
+    transform: translateX(3px) skewX(-0.5deg);
+    clip-path: inset(74% 0 14% 0);
+  }
+
+  58.5% {
+    opacity: 0.4;
+    transform: translateX(-2px) skewX(0.7deg);
+    clip-path: inset(70% 0 18% 0);
+  }
+
+  /* Более длинный сбой */
+
+  81.2% {
+    opacity: 0.8;
+    transform: translateX(-5px) skewX(1.2deg);
+    clip-path: inset(27% 0 62% 0);
+  }
+
+  81.7% {
+    opacity: 0.55;
+    transform: translateX(4px) skewX(-1deg);
+    clip-path: inset(31% 0 57% 0);
+  }
+}
+
+/* ==================================================
+   СЛОЙ 2 — КРАСНО-ЧЁРНЫЕ ГЛИТЧ-РАЗРЫВЫ
+   ================================================== */
+
+.faction-card--corrupt::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+
+  pointer-events: none;
+  opacity: 0;
+
+  background:
+    linear-gradient(
+        90deg,
+        transparent 0 5%,
+        rgba(255, 35, 55, 0.95) 5% 28%,
+        #080204 28% 58%,
+        rgba(255, 45, 60, 0.8) 58% 72%,
+        transparent 72%
+      )
+      0 17% / 100% 4px no-repeat,
+    linear-gradient(
+        90deg,
+        transparent 0 18%,
+        #030102 18% 44%,
+        rgba(255, 25, 45, 0.95) 44% 66%,
+        transparent 66%
+      )
+      0 48% / 100% 7px no-repeat,
+    linear-gradient(
+        90deg,
+        rgba(255, 35, 55, 0.85) 0 13%,
+        #050102 13% 39%,
+        transparent 39% 60%,
+        rgba(255, 40, 60, 0.8) 60% 83%,
+        transparent 83%
+      )
+      0 79% / 100% 5px no-repeat;
+
+  animation: corrupt-glitch-burst 5.2s steps(1, end) infinite;
+}
+
+@keyframes corrupt-glitch-burst {
+  0%,
+  12%,
+  14%,
+  34%,
+  36%,
+  61%,
+  63%,
+  84%,
+  86%,
+  100% {
+    opacity: 0;
+    transform: translateX(0) skewX(0);
+    clip-path: inset(0);
+    filter: none;
+  }
+
+  /* Первый разрыв */
+
+  12.2% {
+    opacity: 0.9;
+    transform: translateX(-5px) skewX(-1deg);
+    clip-path: inset(11% 0 82% 0);
+  }
+
+  12.6% {
+    opacity: 0.8;
+    transform: translateX(7px) skewX(1.4deg);
+    clip-path: inset(14% 0 78% 0);
+  }
+
+  /* Центральное искажение */
+
+  34.2% {
+    opacity: 1;
+    transform: translateX(6px) skewX(1.5deg);
+    clip-path: inset(39% 0 51% 0);
+    filter: saturate(1.8);
+  }
+
+  34.5% {
+    opacity: 0.85;
+    transform: translateX(-8px) skewX(-1.2deg);
+    clip-path: inset(45% 0 45% 0);
+  }
+
+  /* Несколько коротких срывов */
+
+  61.2% {
+    opacity: 0.95;
+    transform: translateX(-7px) skewX(-1.8deg);
+    clip-path: inset(70% 0 21% 0);
+  }
+
+  61.5% {
+    opacity: 0.7;
+    transform: translateX(5px) skewX(1deg);
+    clip-path: inset(76% 0 15% 0);
+  }
+
+  /* Самый заметный сбой */
+
+  84.2% {
+    opacity: 1;
+    transform: translateX(8px) skewX(2deg);
+    clip-path: inset(25% 0 63% 0);
+    filter: contrast(1.5);
+  }
+
+  84.5% {
+    opacity: 0.85;
+    transform: translateX(-9px) skewX(-1.5deg);
+    clip-path: inset(30% 0 58% 0);
+  }
+}
+
+/* ==================================================
+   ДОПОЛНИТЕЛЬНАЯ НЕСТАБИЛЬНОСТЬ ПРИ НАВЕДЕНИИ
+   ================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .faction-card--corrupt:hover::before {
+    animation-duration: 4.2s;
+  }
+
+  .faction-card--corrupt:hover::after {
+    animation-duration: 3.6s;
+  }
+
+  .faction-card--corrupt:hover .faction-emblem {
+    filter: drop-shadow(0 0 5px rgba(255, 40, 55, 0.45))
+      drop-shadow(0 0 14px rgba(237, 65, 75, 0.2));
+  }
+}
+
+/* ==================================================
+   ПОДСВЕТКА ЭМБЛЕМ ФРАКЦИЙ
+   ================================================== */
+
+.faction-emblem {
+  position: relative;
+  isolation: isolate;
+
+  border-color: var(--faction-color);
+
+  box-shadow:
+    0 0 7px color-mix(in srgb, var(--faction-color) 22%, transparent),
+    inset 0 0 8px color-mix(in srgb, var(--faction-color) 9%, transparent);
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Центрон */
+
+.faction-card--centron .faction-emblem {
+  box-shadow:
+    0 0 8px rgba(230, 163, 59, 0.24),
+    0 0 20px rgba(230, 163, 59, 0.08),
+    inset 0 0 10px rgba(230, 163, 59, 0.1);
+}
+
+/* Коррапт */
+
+.faction-card--corrupt .faction-emblem {
+  box-shadow:
+    0 0 8px rgba(237, 65, 75, 0.25),
+    0 0 18px rgba(237, 65, 75, 0.08),
+    inset 0 0 12px rgba(237, 65, 75, 0.1);
+}
+
+/* Вейрон */
+
+.faction-card--veyron .faction-emblem {
+  box-shadow:
+    0 0 8px rgba(190, 220, 255, 0.3),
+    0 0 20px rgba(100, 160, 255, 0.12),
+    inset 0 0 10px rgba(190, 220, 255, 0.12);
+}
+
+/* Фронтир */
+
+.faction-card--frontier .faction-emblem {
+  box-shadow:
+    0 0 8px rgba(164, 107, 255, 0.28),
+    0 0 22px rgba(164, 107, 255, 0.12),
+    inset 0 0 12px rgba(164, 107, 255, 0.1);
+}
+
+/* Усиление свечения эмблем */
+
+@media (hover: hover) and (pointer: fine) {
+  .faction-card--centron:hover .faction-emblem {
+    box-shadow:
+      0 0 12px rgba(230, 163, 59, 0.38),
+      0 0 26px rgba(230, 163, 59, 0.15),
+      inset 0 0 12px rgba(230, 163, 59, 0.14);
+  }
+
+  .faction-card--corrupt:hover .faction-emblem {
+    box-shadow:
+      0 0 12px rgba(237, 65, 75, 0.4),
+      0 0 26px rgba(237, 65, 75, 0.15),
+      inset 0 0 14px rgba(237, 65, 75, 0.16);
+  }
+
+  .faction-card--veyron:hover .faction-emblem {
+    box-shadow:
+      0 0 12px rgba(190, 220, 255, 0.42),
+      0 0 26px rgba(100, 160, 255, 0.2),
+      inset 0 0 12px rgba(190, 220, 255, 0.17);
+  }
+
+  .faction-card--frontier:hover .faction-emblem {
+    box-shadow:
+      0 0 12px rgba(164, 107, 255, 0.42),
+      0 0 28px rgba(164, 107, 255, 0.2),
+      inset 0 0 14px rgba(164, 107, 255, 0.15);
+  }
+}
+
+/* Уважение системной настройки */
+
+@media (prefers-reduced-motion: reduce) {
+  .faction-card--corrupt::before,
+  .faction-card--corrupt::after {
+    animation: none;
+  }
+
+  .faction-card--corrupt::before {
+    opacity: 0.12;
+    clip-path: none;
+    transform: none;
+  }
+
+  .faction-card--corrupt::after {
+    opacity: 0;
+  }
+
+  .faction-emblem {
+    transition: none;
+  }
+}

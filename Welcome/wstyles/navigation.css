@@ -1,0 +1,148 @@
+/* ==================================================
+   VOID CODEX — WELCOME NAVIGATION
+   Кнопка возврата в стиле главного меню
+   ================================================== */
+
+.welcome-navigation {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 540px;
+
+  margin-top: 12px;
+}
+
+.welcome-back {
+  position: relative;
+  isolation: isolate;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  min-width: 250px;
+  min-height: 54px;
+
+  padding: 0 24px;
+
+  color: var(--color-white);
+  text-decoration: none;
+
+  background: transparent;
+}
+
+/* SVG-рамка шестигранника */
+.welcome-back .button-frame {
+  position: absolute;
+  z-index: -1;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+  pointer-events: none;
+}
+
+.welcome-back .button-frame path {
+  fill: rgba(9, 13, 8, 0.94);
+
+  stroke: var(--color-acid);
+  stroke-width: 1.5;
+  stroke-linejoin: miter;
+
+  vector-effect: non-scaling-stroke;
+
+  transition:
+    fill 180ms ease,
+    stroke 180ms ease;
+}
+
+/* Стрелка */
+.welcome-back svg.back-arrow {
+  display: block;
+
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.welcome-back .back-arrow path {
+  fill: none;
+
+  stroke: var(--color-acid);
+  stroke-width: 1.8;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+
+  transition: stroke 180ms ease;
+}
+
+/* Надпись */
+.welcome-back span {
+  color: var(--color-white);
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+
+  transition: color 180ms ease;
+}
+
+/* Лёгкая подсветка при наведении */
+.welcome-back:hover .button-frame path,
+.welcome-back:focus-visible .button-frame path {
+  fill: rgba(45, 53, 12, 0.96);
+  stroke: #f3ff91;
+}
+
+.welcome-back:hover .back-arrow path,
+.welcome-back:focus-visible .back-arrow path {
+  stroke: #f3ff91;
+}
+
+.welcome-back:hover span,
+.welcome-back:focus-visible span {
+  color: #ffffff;
+}
+
+.welcome-back:focus-visible {
+  outline: 1px solid var(--color-acid);
+  outline-offset: 4px;
+}
+
+/* Телефоны */
+@media (max-width: 520px) {
+  .welcome-navigation {
+    margin-top: 8px;
+  }
+
+  .welcome-back {
+    min-width: 230px;
+    min-height: 50px;
+
+    padding: 0 20px;
+    gap: 10px;
+  }
+
+  .welcome-back span {
+    font-size: 9px;
+  }
+}
+
+/* Учитываем настройки доступности */
+@media (prefers-reduced-motion: reduce) {
+  .welcome-back .button-frame path,
+  .welcome-back .back-arrow path,
+  .welcome-back span {
+    transition: none;
+  }
+}

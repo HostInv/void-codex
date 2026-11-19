@@ -1,0 +1,274 @@
+
+/* ========================================
+   VOID CODEX — START PAGE
+   Основная структура и расположение
+======================================== */
+
+/* Основной экран */
+
+.start-screen {
+    position: relative;
+    z-index: 1;
+
+    width: min(1400px, 100%);
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding: 55px 50px 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: #e8e8df;
+}
+
+
+/* ========================================
+   ВСТУПИТЕЛЬНАЯ ЧАСТЬ
+======================================== */
+
+.start-intro {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.start-overline {
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: rgba(231, 255, 50, 0.65);
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.start-title {
+    margin: 0;
+
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    letter-spacing: 12px;
+}
+
+.start-subtitle {
+    margin: 15px 0 0;
+
+    color: rgba(225, 225, 215, 0.7);
+
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+
+/* ========================================
+   ЦЕНТРАЛЬНАЯ КОМПОЗИЦИЯ
+======================================== */
+
+.start-interface {
+    width: 100%;
+    max-width: 1120px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(240px, 0.85fr)
+        minmax(0, 1fr);
+
+    grid-template-rows: repeat(2, minmax(190px, 1fr));
+
+    grid-template-areas:
+        "identity emblem history"
+        "abyss emblem factions";
+
+    gap: 28px;
+    align-items: stretch;
+}
+
+
+/* ========================================
+   ЦЕНТРАЛЬНОЕ ЗНАМЯ
+======================================== */
+
+.start-emblem {
+    grid-area: emblem;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+}
+
+.start-emblem-frame {
+    position: relative;
+
+    width: min(100%, 310px);
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-emblem-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.start-emblem-caption {
+    color: rgba(231, 255, 50, 0.8);
+
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+
+
+/* ========================================
+   НИЖНЯЯ НАВИГАЦИЯ
+======================================== */
+
+.start-footer {
+    width: 100%;
+
+    margin-top: 45px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.start-back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+    padding: 0 24px;
+
+    border: 1px solid rgba(231, 255, 50, 0.4);
+
+    color: #e7ff32;
+    background: rgba(5, 6, 6, 0.5);
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.start-back-button:hover {
+    border-color: #e7ff32;
+    background: rgba(231, 255, 50, 0.07);
+
+    box-shadow: 0 0 18px rgba(231, 255, 50, 0.1);
+}
+
+
+/* ========================================
+   ПЛАНШЕТЫ
+======================================== */
+
+@media (max-width: 900px) {
+
+    .start-screen {
+        padding: 45px 28px 25px;
+    }
+
+    .start-interface {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto auto auto;
+
+        grid-template-areas:
+            "emblem emblem"
+            "identity history"
+            "abyss factions";
+
+        gap: 20px;
+    }
+
+    .start-emblem-frame {
+        width: min(55vw, 280px);
+    }
+
+    .start-emblem {
+        padding: 10px 0 25px;
+    }
+
+}
+
+
+/* ========================================
+   МОБИЛЬНЫЕ УСТРОЙСТВА
+======================================== */
+
+@media (max-width: 560px) {
+
+    .start-screen {
+        min-height: 100vh;
+        padding: 35px 18px 22px;
+    }
+
+    .start-intro {
+        margin-bottom: 25px;
+    }
+
+    .start-title {
+        font-size: 30px;
+        letter-spacing: 7px;
+    }
+
+    .start-subtitle {
+        max-width: 340px;
+        margin: 12px auto 0;
+
+        font-size: 12px;
+    }
+
+    .start-interface {
+        grid-template-columns: minmax(0, 1fr);
+
+        grid-template-areas:
+            "emblem"
+            "identity"
+            "history"
+            "abyss"
+            "factions";
+
+        grid-template-rows: auto;
+        gap: 14px;
+    }
+
+    .start-emblem-frame {
+        width: min(65vw, 240px);
+    }
+
+    .start-emblem {
+        padding: 0 0 15px;
+    }
+
+    .start-footer {
+        margin-top: 30px;
+    }
+
+}

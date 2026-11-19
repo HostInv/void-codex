@@ -1,0 +1,65 @@
+/* ==================================================
+   VOID CODEX — FRONTIER COSMIC NEBULA
+   Прозрачная туманность • Яркие частицы
+   ================================================== */
+
+.faction-card--frontier {
+  position: relative;
+  isolation: isolate;
+
+  --frontier-violet: 164, 107, 255;
+}
+
+/* Космическое полотно */
+
+/* Космическое полотно */
+
+.faction-card--frontier .frontier-space-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  opacity: 0.72;
+}
+
+/* Учитываем системную настройку анимации */
+
+@media (prefers-reduced-motion: reduce) {
+  .faction-card--frontier .frontier-space-canvas {
+    opacity: 0.65;
+  }
+}
+
+/* Содержимое карточки выше эффекта */
+
+.faction-card--frontier .faction-toggle,
+.faction-card--frontier .faction-details {
+  position: relative;
+  z-index: 2;
+}
+
+/* Мягкое свечение эмблемы */
+
+.faction-card--frontier .faction-emblem {
+  filter: drop-shadow(0 0 6px rgba(164, 107, 255, 0.28));
+
+  transition: filter 300ms ease;
+}
+
+.faction-card--frontier:hover .faction-emblem {
+  filter: drop-shadow(0 0 9px rgba(185, 139, 255, 0.48))
+    drop-shadow(0 0 22px rgba(125, 65, 220, 0.22));
+}
+
+/* Учитываем системную настройку анимации */
+
+@media (prefers-reduced-motion: reduce) {
+  .faction-card--frontier .frontier-space-canvas {
+    opacity: 0.85;
+  }
+}

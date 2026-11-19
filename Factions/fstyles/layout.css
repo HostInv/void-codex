@@ -1,0 +1,139 @@
+/* ==================================================
+   VOID CODEX — FACTIONS LAYOUT
+   ================================================== */
+
+.factions-screen {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  padding: 32px 24px 36px;
+}
+
+.factions-header {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto 38px;
+
+  text-align: center;
+}
+
+.factions-overline {
+  margin: 0 0 18px;
+
+  color: var(--color-acid);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+}
+
+.factions-header h1 {
+  margin: 0;
+
+  color: var(--color-white);
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+
+.factions-description {
+  max-width: 620px;
+  margin: 18px auto 0;
+
+  color: #c3c9ba;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.factions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+
+  gap: 18px;
+
+  width: 100%;
+  max-width: 1040px;
+}
+
+.factions-navigation {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  margin-top: 36px;
+}
+
+.factions-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 46px;
+  padding: 0 20px;
+
+  border: 1px solid var(--color-acid-dim);
+  color: var(--color-acid-soft);
+
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.factions-back:hover,
+.factions-back:focus-visible {
+  color: var(--color-acid);
+  border-color: var(--color-acid);
+  background: rgba(231, 255, 50, 0.06);
+}
+
+.factions-back:focus-visible {
+  outline: 1px solid var(--color-acid);
+  outline-offset: 4px;
+}
+
+/* Средние экраны и телефоны */
+@media (max-width: 700px) {
+  .factions-screen {
+    padding: 24px 16px 28px;
+  }
+
+  .factions-header {
+    margin-bottom: 28px;
+  }
+
+  .factions-header h1 {
+    font-size: clamp(26px, 7vw, 38px);
+  }
+
+  .factions-description {
+    font-size: 13px;
+  }
+
+  .factions-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .factions-navigation {
+    margin-top: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .factions-back {
+    transition: none;
+  }
+}

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="theme-color" content="#050606" />
+    <meta name="description" content="Идентификация участника VOID CODEX" />
+
+    <title>Кто я? — VOID CODEX</title>
+
+    <link rel="stylesheet" href="../../Shared/styles/global.css" />
+    <link rel="stylesheet" href="./wstyles/whoami.css" />
+
+    <script src="../../Shared/scripts/background.js" defer></script>
+    <script src="./wscripts/whoami.js" defer></script>
+  </head>
+
+  <body>
+    <div class="world-background" aria-hidden="true"></div>
+
+    <main class="whoami-screen">
+      <!-- ЗАГОЛОВОК -->
+      <header class="whoami-header">
+        <p class="whoami-overline">VOID CODEX / PARTICIPANT IDENTIFICATION</p>
+
+        <h1>КТО Я?</h1>
+
+        <p class="whoami-subtitle">
+          Идентификация. Принадлежность. Начало пути.
+        </p>
+      </header>
+
+      <!-- ИДЕНТИФИКАЦИЯ -->
+      <section class="whoami-section identity-section">
+        <div class="section-heading">
+          <span class="section-number">01</span>
+
+          <div>
+            <p class="section-label">IDENTITY / PROFILE</p>
+            <h2>ИДЕНТИФИКАЦИЯ</h2>
+          </div>
+        </div>
+
+        <div class="identity-content">
+          <div class="identity-symbol" aria-hidden="true">
+            <span>VC</span>
+          </div>
+
+          <div class="identity-text">
+            <h3>УЧАСТНИК VOID CODEX</h3>
+
+            <p>
+              Здесь появится описание участника, его роли в цифровой бездне и
+              места в общей структуре Кодекса.
+            </p>
+
+            <p>
+              Это пространство для знакомства с миром, в который предстоит
+              войти.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ФОРМА -->
+      <section class="whoami-section uniform-section">
+        <div class="section-heading">
+          <span class="section-number">02</span>
+
+          <div>
+            <p class="section-label">EQUIPMENT / UNIFORM</p>
+            <h2>ФОРМА УЧАСТНИКА</h2>
+          </div>
+        </div>
+
+        <div class="uniform-content">
+          <div class="uniform-image">
+            <img src="./images/uniform.png" alt="Форма участника VOID CODEX" />
+
+            <span class="image-placeholder"> UNIFORM PREVIEW </span>
+          </div>
+
+          <div class="uniform-description">
+            <h3>СТАНДАРТНАЯ ФОРМА</h3>
+
+            <p>
+              Здесь будет описание внешнего вида формы, её назначения и значения
+              для участника.
+            </p>
+
+            <p>
+              Также здесь можно будет указать, где и каким образом её получить.
+            </p>
+
+            <button
+              class="uniform-get-button"
+              type="button"
+              id="open-uniform-modal"
+            >
+              ПОЛУЧИТЬ ФОРМУ
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ПРАВИЛА -->
+      <section class="whoami-section rules-section">
+        <div class="section-heading">
+          <span class="section-number">03</span>
+
+          <div>
+            <p class="section-label">PROTOCOL / REGULATIONS</p>
+            <h2>ПРАВИЛА УЧАСТИЯ</h2>
+          </div>
+        </div>
+
+        <div class="rules-list">
+          <article class="rule-item">
+            <span class="rule-number">01</span>
+
+            <div>
+              <h3>УВАЖЕНИЕ</h3>
+              <p>Временное описание первого правила.</p>
+            </div>
+          </article>
+
+          <article class="rule-item">
+            <span class="rule-number">02</span>
+
+            <div>
+              <h3>ПОВЕДЕНИЕ</h3>
+              <p>Временное описание второго правила.</p>
+            </div>
+          </article>
+
+          <article class="rule-item">
+            <span class="rule-number">03</span>
+
+            <div>
+              <h3>ВЗАИМОДЕЙСТВИЕ</h3>
+              <p>Временное описание третьего правила.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ВОЗВРАЩЕНИЕ -->
+      <nav class="whoami-navigation" aria-label="Навигация">
+        <a class="whoami-back" href="../index.html">
+          <span aria-hidden="true">←</span>
+          ВЕРНУТЬСЯ В МЕНЮ
+        </a>
+      </nav>
+    </main>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div class="uniform-modal" id="uniform-modal" aria-hidden="true">
+      <div class="uniform-modal-backdrop" data-close-modal></div>
+
+      <section
+        class="uniform-modal-window"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="uniform-modal-title"
+      >
+        <button
+          class="uniform-modal-close"
+          type="button"
+          data-close-modal
+          aria-label="Закрыть окно"
+        >
+          ×
+        </button>
+
+        <p class="section-label">ACCESS / UNIFORM</p>
+
+        <h2 id="uniform-modal-title">ПОЛУЧЕНИЕ ФОРМЫ</h2>
+
+        <p class="uniform-modal-description">Выберите удобный способ связи.</p>
+
+        <div class="uniform-platforms">
+          <a
+            class="platform-button platform-vk"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-platform="vk"
+          >
+            <span class="platform-icon">VK</span>
+
+            <span>
+              <strong>ВКонтакте</strong>
+              <small>Получить через VK</small>
+            </span>
+
+            <span class="platform-arrow">→</span>
+          </a>
+
+          <a
+            class="platform-button platform-tg"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-platform="tg"
+          >
+            <span class="platform-icon">TG</span>
+
+            <span>
+              <strong>Telegram</strong>
+              <small>Получить через TG</small>
+            </span>
+
+            <span class="platform-arrow">→</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

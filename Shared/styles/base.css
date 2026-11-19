@@ -1,0 +1,42 @@
+/* ==================================================
+   VOID CODEX — BASE
+   Цвета и базовые настройки
+   ================================================== */
+
+:root {
+  color-scheme: dark;
+
+  --color-background: #050606;
+  --color-panel: #0a0d0b;
+
+  --color-acid: #e7ff32;
+  --color-acid-soft: #b8cb29;
+  --color-acid-dim: #58631d;
+
+  --color-white: #e9ede4;
+  --color-muted: #81877c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--color-background);
+}
+
+body {
+  min-width: 280px;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  margin: 0;
+  overflow-x: hidden;
+
+  background: var(--color-background);
+  color: var(--color-white);
+
+  font-family: "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,480 @@
+/* ========================================
+   VOID CODEX — WHOAMI
+======================================== */
+
+.whoami-screen {
+  position: relative;
+  z-index: 1;
+
+  width: min(1050px, calc(100% - 40px));
+  margin: 0 auto;
+
+  padding: 75px 0 45px;
+
+  color: #e8e8df;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.whoami-header {
+  margin-bottom: 65px;
+  text-align: center;
+}
+
+.whoami-overline,
+.section-label {
+  color: #e7ff32;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.whoami-header h1 {
+  margin: 15px 0;
+
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 500;
+  letter-spacing: 5px;
+}
+
+.whoami-subtitle {
+  color: rgba(225, 225, 215, 0.6);
+
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   GENERAL SECTIONS
+======================================== */
+
+.whoami-section {
+  margin-bottom: 55px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-bottom: 25px;
+}
+
+.section-number {
+  color: #e7ff32;
+
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.section-heading h2 {
+  margin: 5px 0 0;
+
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.section-label {
+  margin: 0;
+  opacity: 0.75;
+}
+
+/* ========================================
+   IDENTITY
+======================================== */
+
+.identity-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  padding: 30px;
+
+  border: 1px solid rgba(220, 225, 215, 0.2);
+  background: rgba(7, 9, 10, 0.72);
+}
+
+.identity-symbol {
+  flex-shrink: 0;
+
+  width: 125px;
+  height: 125px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(231, 255, 50, 0.55);
+
+  color: #e7ff32;
+  font-size: 36px;
+  letter-spacing: 4px;
+
+  box-shadow: inset 0 0 25px rgba(231, 255, 50, 0.07);
+}
+
+.identity-text h3,
+.uniform-description h3 {
+  margin: 0 0 14px;
+
+  font-size: 16px;
+  letter-spacing: 1.5px;
+}
+
+.identity-text p,
+.uniform-description p {
+  max-width: 650px;
+
+  color: rgba(225, 225, 215, 0.67);
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   UNIFORM
+======================================== */
+
+.uniform-content {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) 1.2fr;
+  gap: 35px;
+
+  padding: 30px;
+
+  border: 1px solid rgba(220, 225, 215, 0.2);
+  background: rgba(7, 9, 10, 0.72);
+}
+
+.uniform-image {
+  position: relative;
+
+  min-height: 260px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(220, 225, 215, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.uniform-image img {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+.uniform-image img:not([src]),
+.uniform-image img[src=""] {
+  display: none;
+}
+
+.image-placeholder {
+  position: absolute;
+
+  color: rgba(225, 225, 215, 0.3);
+
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.uniform-get-button {
+  margin-top: 20px;
+  padding: 14px 20px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+
+  border: 1px solid #e7ff32;
+  background: transparent;
+
+  color: #e7ff32;
+
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.uniform-get-button:hover {
+  background: rgba(231, 255, 50, 0.08);
+
+  box-shadow: 0 0 18px rgba(231, 255, 50, 0.15);
+}
+
+/* ========================================
+   RULES
+======================================== */
+
+.rules-list {
+  display: grid;
+  gap: 12px;
+}
+
+.rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+
+  padding: 22px 25px;
+
+  border: 1px solid rgba(220, 225, 215, 0.16);
+  background: rgba(7, 9, 10, 0.72);
+}
+
+.rule-number {
+  color: #e7ff32;
+
+  font-size: 21px;
+  font-weight: 300;
+}
+
+.rule-item h3 {
+  margin: 0 0 8px;
+
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+
+.rule-item p {
+  margin: 0;
+
+  color: rgba(225, 225, 215, 0.62);
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.whoami-navigation {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 65px;
+}
+
+.whoami-back {
+  padding: 15px 24px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid rgba(220, 225, 215, 0.25);
+
+  color: rgba(225, 225, 215, 0.75);
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.whoami-back:hover {
+  border-color: #e7ff32;
+  color: #e7ff32;
+}
+
+/* ========================================
+   MODAL
+======================================== */
+
+.uniform-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  padding: 20px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.uniform-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.uniform-modal-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(7px);
+}
+
+.uniform-modal-window {
+  position: relative;
+  z-index: 1;
+
+  width: min(440px, 100%);
+  padding: 35px;
+
+  border: 1px solid rgba(231, 255, 50, 0.4);
+  background: #090b0b;
+
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+
+  transform: translateY(15px);
+  transition: transform 0.25s ease;
+}
+
+.uniform-modal.is-open .uniform-modal-window {
+  transform: translateY(0);
+}
+
+.uniform-modal-window h2 {
+  margin: 12px 0;
+
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.uniform-modal-description {
+  margin-bottom: 25px;
+
+  color: rgba(225, 225, 215, 0.6);
+  font-size: 12px;
+}
+
+.uniform-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+
+  border: 0;
+  background: none;
+
+  color: #e8e8df;
+  font-size: 26px;
+
+  cursor: pointer;
+}
+
+.uniform-platforms {
+  display: grid;
+  gap: 12px;
+}
+
+.platform-button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 15px;
+
+  border: 1px solid rgba(220, 225, 215, 0.18);
+
+  color: #e8e8df;
+  text-decoration: none;
+
+  transition: 0.25s ease;
+}
+
+.platform-button:hover {
+  border-color: #e7ff32;
+  background: rgba(231, 255, 50, 0.05);
+}
+
+.platform-icon {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(231, 255, 50, 0.35);
+
+  color: #e7ff32;
+  font-size: 12px;
+}
+
+.platform-button strong,
+.platform-button small {
+  display: block;
+}
+
+.platform-button strong {
+  font-size: 13px;
+}
+
+.platform-button small {
+  margin-top: 5px;
+
+  color: rgba(225, 225, 215, 0.55);
+  font-size: 10px;
+}
+
+.platform-arrow {
+  margin-left: auto;
+  color: #e7ff32;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 650px) {
+  .whoami-screen {
+    width: min(100% - 28px, 500px);
+    padding-top: 45px;
+  }
+
+  .whoami-header {
+    margin-bottom: 45px;
+  }
+
+  .identity-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+  }
+
+  .identity-symbol {
+    width: 85px;
+    height: 85px;
+    font-size: 28px;
+  }
+
+  .uniform-content {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 25px;
+  }
+
+  .uniform-image {
+    min-height: 230px;
+  }
+
+  .section-heading h2 {
+    font-size: 16px;
+  }
+
+  .uniform-modal-window {
+    padding: 28px 22px;
+  }
+}

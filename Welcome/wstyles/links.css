@@ -1,0 +1,200 @@
+/* ==================================================
+   VOID CODEX — WELCOME LINKS
+   Социальные карточки и внешние ссылки
+   ================================================== */
+
+.welcome-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.welcome-link {
+  --link-color: var(--color-acid);
+  --link-tint: rgba(231, 255, 50, 0.06);
+
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 22px;
+  align-items: center;
+  gap: 15px;
+
+  min-height: 84px;
+  padding: 15px 18px;
+
+  border: 1px solid color-mix(in srgb, var(--link-color) 42%, transparent);
+  background: rgba(10, 13, 11, 0.92);
+
+  color: var(--color-white);
+  text-decoration: none;
+
+  clip-path: none;
+
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+/* Цвета платформ */
+
+.welcome-link--vk {
+  --link-color: #0077ff;
+  --link-tint: rgba(0, 119, 255, 0.09);
+}
+
+.welcome-link--telegram {
+  --link-color: #229ed9;
+  --link-tint: rgba(34, 158, 217, 0.09);
+}
+
+/* Иконка */
+
+.link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid color-mix(in srgb, var(--link-color) 45%, transparent);
+  background: color-mix(in srgb, var(--link-color) 12%, transparent);
+
+  color: var(--link-color);
+}
+
+.link-icon svg {
+  display: block;
+  width: 27px;
+  height: 27px;
+  fill: currentColor;
+}
+
+/* Текст */
+
+.link-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.link-title {
+  color: var(--color-white);
+  font-size: 14px;
+  letter-spacing: 0.035em;
+  line-height: 1.4;
+}
+
+.link-description {
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Стрелка перехода */
+
+.link-arrow {
+  color: var(--link-color);
+  font-size: 22px;
+  text-align: center;
+
+  transition: transform 180ms ease;
+}
+
+/* Наведение и клавиатурный фокус */
+
+.welcome-link:hover,
+.welcome-link:focus-visible {
+  border-color: var(--link-color);
+  background: var(--link-tint);
+  outline: none;
+}
+
+.welcome-link:hover .link-arrow,
+.welcome-link:focus-visible .link-arrow {
+  transform: translate(2px, -2px);
+}
+
+.welcome-link:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 3px;
+}
+
+/* Адаптация */
+
+@media (max-width: 520px) {
+  .welcome-links {
+    gap: 12px;
+  }
+
+  .welcome-link {
+    grid-template-columns: 44px minmax(0, 1fr) 18px;
+    gap: 12px;
+    min-height: 82px;
+    padding: 13px;
+  }
+
+  .link-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .link-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .link-title {
+    font-size: 13px;
+  }
+
+  .link-description {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+}
+
+/* Настройка уменьшения движения */
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-link,
+  .link-arrow {
+    transition: none;
+  }
+}
+
+/* ==================================================
+   WELCOME — СИММЕТРИЧНЫЕ КАРТОЧКИ
+   Только ПК и ноутбуки
+   ================================================== */
+
+@media (min-width: 521px) {
+  .welcome-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+  }
+
+  .welcome-link {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 174px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 24px 14px 18px;
+    text-align: center;
+  }
+
+  .link-content {
+    align-items: center;
+    text-align: center;
+  }
+}

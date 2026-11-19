@@ -1,0 +1,286 @@
+/* ==================================================
+   VOID CODEX — SCALING
+   Адаптация интерфейса под размеры экрана
+   ================================================== */
+
+/* ==================================================
+   1. БОЛЬШИЕ МОНИТОРЫ — от 1440 px
+   ================================================== */
+
+@media (min-width: 1440px) {
+  :root {
+    --content-width: 620px;
+    --button-height: 84px;
+    --menu-gap: 18px;
+
+    --emblem-size: 118px;
+    --button-number-size: 26px;
+    --button-label-size: 17px;
+  }
+
+  .main-screen {
+    padding-top: clamp(36px, 5vh, 64px);
+  }
+
+  .brand {
+    margin-bottom: 48px;
+  }
+
+  .menu-button {
+    grid-template-columns: 70px minmax(0, 1fr) 28px;
+    gap: 14px;
+    padding-right: 34px;
+    padding-left: 34px;
+  }
+
+  .button-arrow {
+    width: 28px;
+  }
+
+  .button-arrow::before {
+    width: 10px;
+    height: 10px;
+  }
+
+  .tagline {
+    margin-top: 24px;
+  }
+
+  .site-footer {
+    max-width: 780px;
+  }
+}
+
+/* ==================================================
+   2. ОЧЕНЬ ШИРОКИЕ МОНИТОРЫ — от 1920 px
+   ================================================== */
+
+@media (min-width: 1920px) {
+  :root {
+    --content-width: 680px;
+    --button-height: 90px;
+    --menu-gap: 20px;
+
+    --emblem-size: 132px;
+    --button-number-size: 28px;
+    --button-label-size: 18px;
+  }
+
+  .brand {
+    margin-bottom: 54px;
+  }
+
+  .brand-title {
+    font-size: 82px;
+  }
+
+  .main-menu {
+    max-width: var(--content-width);
+  }
+
+  .button-arrow::before {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+/* ==================================================
+   3. ТЕЛЕФОНЫ И НЕБОЛЬШИЕ ЭКРАНЫ — до 520 px
+   ================================================== */
+
+@media (max-width: 520px) {
+  :root {
+    --content-width: 280px;
+    --button-height: 58px;
+    --menu-gap: 10px;
+
+    --emblem-size: 68px;
+    --button-number-size: 17px;
+    --button-label-size: 11px;
+  }
+
+  .main-screen {
+    padding: 24px 16px 20px;
+  }
+
+  .brand {
+    margin-bottom: 28px;
+  }
+
+  .brand-symbol {
+    margin-bottom: 8px;
+  }
+
+  .brand-title {
+    font-size: clamp(32px, 9vw, 44px);
+  }
+
+  .tagline {
+    gap: 7px;
+    margin-top: 14px;
+  }
+
+  .tagline p {
+    font-size: 8px;
+    letter-spacing: 0.08em;
+  }
+
+  .tagline-line {
+    max-width: 24px;
+  }
+
+  .main-menu {
+    width: 100%;
+    max-width: min(var(--content-width), 100%);
+    align-self: center;
+  }
+
+  .menu-button {
+    grid-template-columns: 34px minmax(0, 1fr) 16px;
+    gap: 7px;
+
+    width: 100%;
+    max-width: 100%;
+    height: var(--button-height);
+
+    padding: 0 19px;
+  }
+
+  .button-number {
+    font-size: var(--button-number-size);
+  }
+
+  .button-label {
+    font-size: var(--button-label-size);
+    letter-spacing: 0.045em;
+  }
+
+  .button-arrow {
+    width: 16px;
+  }
+
+  .button-arrow::before {
+    width: 7px;
+    height: 7px;
+  }
+
+  .site-footer {
+    gap: 8px;
+    padding-top: 30px;
+  }
+
+  .site-footer p {
+    font-size: 7px;
+    letter-spacing: 0.06em;
+  }
+
+  .portal {
+    width: 60vw;
+    height: 28px;
+  }
+}
+
+/* ==================================================
+   4. ОЧЕНЬ УЗКИЕ ТЕЛЕФОНЫ — до 360 px
+   ================================================== */
+
+@media (max-width: 360px) {
+  :root {
+    --content-width: 280px;
+    --button-height: 54px;
+    --menu-gap: 9px;
+
+    --button-number-size: 16px;
+    --button-label-size: 10px;
+  }
+
+  .main-screen {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .brand {
+    margin-bottom: 24px;
+  }
+
+  .brand-title {
+    font-size: 32px;
+  }
+
+  .tagline {
+    gap: 5px;
+  }
+
+  .tagline p {
+    font-size: 7px;
+    letter-spacing: 0.04em;
+  }
+
+  .main-menu {
+    max-width: min(var(--content-width), 100%);
+  }
+
+  .menu-button {
+    grid-template-columns: 30px minmax(0, 1fr) 14px;
+    gap: 6px;
+
+    height: var(--button-height);
+    padding: 0 15px;
+  }
+
+  .button-label {
+    font-size: var(--button-label-size);
+    letter-spacing: 0.025em;
+  }
+
+  .button-arrow {
+    width: 14px;
+  }
+
+  .button-arrow::before {
+    width: 6px;
+    height: 6px;
+  }
+
+  .site-footer {
+    gap: 6px;
+  }
+
+  .site-footer p {
+    font-size: 6px;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* ==================================================
+   5. НИЗКИЕ ОКНА
+   Применяется независимо от ширины экрана
+   ================================================== */
+
+@media (max-height: 680px) {
+  .main-screen {
+    padding-top: 16px;
+  }
+
+  .brand {
+    margin-bottom: 22px;
+  }
+
+  .brand-symbol {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 4px;
+  }
+
+  .brand-title {
+    font-size: 39px;
+  }
+
+  .tagline {
+    margin-top: 10px;
+  }
+
+  .site-footer {
+    padding-top: 25px;
+  }
+}

@@ -1,0 +1,12 @@
+/* ==================================================
+   VOID CODEX — FACTIONS
+   Загрузчик стилей
+   ================================================== */
+
+@import url("./layout.css");
+@import url("./cards.css");
+@import url("./images/emblems.css");
+@import url("./effects/centron.css");
+@import url("./effects/corrupt.css");
+@import url("./effects/veyron.css");
+@import url("./effects/frontier.css");

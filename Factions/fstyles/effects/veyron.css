@@ -1,0 +1,55 @@
+/* ==================================================
+   VOID CODEX — VEYRON NEURAL GRID
+   Цифровая сеть • Холодный интерфейс
+   ================================================== */
+
+.faction-card--veyron {
+  position: relative;
+  isolation: isolate;
+
+  --veyron-light: 190, 226, 255;
+}
+
+/* Полотно цифровой сети */
+
+.faction-card--veyron .veyron-code-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  opacity: 0.88;
+}
+
+/* Контент всегда выше эффекта */
+
+.faction-card--veyron .faction-toggle,
+.faction-card--veyron .faction-details {
+  position: relative;
+  z-index: 2;
+}
+
+/* Холодное свечение эмблемы */
+
+.faction-card--veyron .faction-emblem {
+  filter: drop-shadow(0 0 5px rgba(190, 226, 255, 0.2));
+
+  transition: filter 250ms ease;
+}
+
+.faction-card--veyron:hover .faction-emblem {
+  filter: drop-shadow(0 0 8px rgba(190, 226, 255, 0.4))
+    drop-shadow(0 0 18px rgba(100, 175, 255, 0.16));
+}
+
+/* Уменьшенное движение по настройке пользователя */
+
+@media (prefers-reduced-motion: reduce) {
+  .faction-card--veyron .veyron-code-canvas {
+    opacity: 0.5;
+  }
+}

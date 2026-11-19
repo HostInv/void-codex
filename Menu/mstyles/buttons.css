@@ -1,0 +1,128 @@
+/* ==================================================
+   VOID CODEX — BUTTONS
+   Шестигранные кнопки главного меню
+   ================================================== */
+
+.main-menu {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--menu-gap);
+
+  width: 100%;
+  max-width: var(--content-width);
+}
+
+.menu-button {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr) 24px;
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+  height: var(--button-height);
+
+  padding: 0 28px;
+
+  color: var(--color-white);
+  text-decoration: none;
+
+  isolation: isolate;
+}
+
+/* Контур шестигранника */
+.button-frame {
+  position: absolute;
+  z-index: -1;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+  pointer-events: none;
+}
+
+.button-frame path {
+  fill: rgba(9, 13, 8, 0.94);
+
+  stroke: var(--color-acid);
+  stroke-width: 1.5;
+  stroke-linejoin: miter;
+
+  vector-effect: non-scaling-stroke;
+}
+
+/* Меняется цвет, но не геометрия */
+.menu-button:hover .button-frame path,
+.menu-button:focus-visible .button-frame path {
+  fill: rgba(45, 53, 12, 0.96);
+  stroke: #f3ff91;
+}
+
+.menu-button:focus-visible {
+  outline: 1px solid var(--color-acid);
+  outline-offset: 4px;
+}
+
+.button-number {
+  color: var(--color-acid);
+
+  font-size: var(--button-number-size);
+  font-weight: 500;
+
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.button-label {
+  min-width: 0;
+
+  color: var(--color-white);
+
+  font-size: var(--button-label-size);
+  font-weight: 500;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+/* CSS-стрелка: центрирована независимо от шрифта */
+.button-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 100%;
+
+  /* Скрываем старый текстовый символ › */
+  font-size: 0;
+}
+
+.button-arrow::before {
+  content: "";
+
+  width: 9px;
+  height: 9px;
+
+  border-top: 1.5px solid var(--color-acid);
+  border-right: 1.5px solid var(--color-acid);
+
+  transform: translateX(-2px) rotate(45deg);
+}
+
+/* Подсветка при наведении */
+.menu-button:hover .button-label,
+.menu-button:focus-visible .button-label {
+  color: #ffffff;
+}
+
+.menu-button:hover .button-arrow::before,
+.menu-button:focus-visible .button-arrow::before {
+  border-color: #f3ff91;
+}

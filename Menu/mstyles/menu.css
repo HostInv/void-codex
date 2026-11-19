@@ -1,0 +1,9 @@
+/* ==================================================
+   VOID CODEX — MAIN MENU
+   Главный файл подключения стилей
+   ================================================== */
+
+@import url("./layout.css");
+@import url("./emblem.css");
+@import url("./buttons.css");
+@import url("./mscaling.css");

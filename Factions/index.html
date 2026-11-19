@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="theme-color" content="#050606" />
+    <title>Выбор фракции — VOID CODEX</title>
+
+    <link rel="stylesheet" href="../Shared/styles/global.css" />
+    <link rel="stylesheet" href="./fstyles/factions.css" />
+
+    <script src="./fscripts/factions.js" defer></script>
+    <script src="../Shared/scripts/background.js" defer></script>
+  </head>
+  <body>
+    <div class="world-background" aria-hidden="true"></div>
+
+    <main class="factions-screen">
+      <header class="factions-header">
+        <p class="factions-overline">VOID CODEX / FACTION ARCHIVE</p>
+        <h1>ВЫБОР ФРАКЦИИ</h1>
+        <p class="factions-description">
+          Четыре стороны. Четыре пути. Выберите фракцию, чтобы узнать о ней
+          больше.
+        </p>
+      </header>
+
+      <section class="factions-grid" aria-label="Список фракций">
+        <!-- ЦЕНТРОН -->
+        <article class="faction-card faction-card--centron">
+          <button
+            class="faction-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="centron-details"
+          >
+            <span class="faction-emblem" aria-hidden="true">
+              <img src="./images/centron.png" alt="" loading="lazy" />
+            </span>
+
+            <span class="faction-heading">
+              <span class="faction-name">ЦЕНТРОН</span>
+              <span class="faction-motto">ПОРЯДОК / СТРУКТУРА</span>
+            </span>
+
+            <span class="faction-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="faction-details" id="centron-details" hidden>
+            <p>
+              Золотой гексагон и планета в центре — символы, задающие визуальный
+              образ Центрона.
+            </p>
+            <a class="faction-enter" href="./Centron/"> ПЕРЕЙТИ К ФРАКЦИИ </a>
+          </div>
+        </article>
+
+        <!-- КОРРАПТ -->
+        <article class="faction-card faction-card--corrupt">
+          <button
+            class="faction-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="corrupt-details"
+          >
+            <span class="faction-emblem" aria-hidden="true">
+              <img src="./images/corrupt.png" alt="" loading="lazy" />
+            </span>
+
+            <span class="faction-heading">
+              <span class="faction-name">КОРРАПТ</span>
+              <span class="faction-motto">ИСКАЖЕНИЕ / ПЕРЕМЕНЫ</span>
+            </span>
+
+            <span class="faction-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="faction-details" id="corrupt-details" hidden>
+            <p>
+              Красная круговая форма, рога и стекающие элементы — основа
+              визуального образа Коррапта.
+            </p>
+            <a class="faction-enter" href="./Corrupt/"> ПЕРЕЙТИ К ФРАКЦИИ </a>
+          </div>
+        </article>
+
+        <!-- ВЕЙРОН -->
+        <article class="faction-card faction-card--veyron">
+          <button
+            class="faction-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="veyron-details"
+          >
+            <span class="faction-emblem" aria-hidden="true">
+              <img src="./images/veyron.png" alt="" loading="lazy" />
+            </span>
+
+            <span class="faction-heading">
+              <span class="faction-name">ВЕЙРОН</span>
+              <span class="faction-motto">ТАЙНА / ПОТЕНЦИАЛ</span>
+            </span>
+
+            <span class="faction-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="faction-details" id="veyron-details" hidden>
+            <p>
+              Круглая геометрическая эмблема в фиолетовой гамме задаёт основу
+              образа Вейрона.
+            </p>
+            <a class="faction-enter" href="./Veyron/"> ПЕРЕЙТИ К ФРАКЦИИ </a>
+          </div>
+        </article>
+
+        <!-- ФРОНТИР -->
+        <article class="faction-card faction-card--frontier">
+          <button
+            class="faction-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="frontier-details"
+          >
+            <span class="faction-emblem" aria-hidden="true">
+              <img src="./images/frontier.png" alt="" loading="lazy" />
+            </span>
+
+            <span class="faction-heading">
+              <span class="faction-name">ФРОНТИР</span>
+              <span class="faction-motto">РУБЕЖ / НЕЗАВИСИМОСТЬ</span>
+            </span>
+
+            <span class="faction-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="faction-details" id="frontier-details" hidden>
+            <p>Чёрно-белая угловатая эмблема — визуальная основа Фронтира.</p>
+            <a class="faction-enter" href="./Frontier/"> ПЕРЕЙТИ К ФРАКЦИИ </a>
+          </div>
+        </article>
+      </section>
+
+      <nav class="factions-navigation" aria-label="Навигация">
+        <a class="factions-back" href="../">
+          <span aria-hidden="true">←</span>
+          ВЕРНУТЬСЯ В МЕНЮ
+        </a>
+      </nav>
+    </main>
+    <script src="./fscripts/centron-observer.js" defer></script>
+    <script src="./fscripts/corrupt-rain.js"></script>
+    <script src="./fscripts/veyron-code.js"></script>
+    <script src="./fscripts/frontier-anomaly.js"></script>
+  </body>
+</html>

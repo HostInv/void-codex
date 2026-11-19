@@ -1,0 +1,374 @@
+/* ==================================================
+   VOID CODEX — CENTRON
+   PRECISION MECHANISM / JEWELRY ENGINEERING
+   ================================================== */
+
+.faction-card--centron {
+  --centron-gold: 218, 166, 78;
+  --centron-light: #f2d49a;
+  --centron-dim: rgba(218, 166, 78, 0.12);
+  position: relative;
+  isolation: isolate;
+}
+
+/* Общий фон прибора */
+
+.faction-card--centron .centron-precision-field {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  left: 50%;
+  top: 50%;
+  width: var(--centron-field-size, 440px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0.72;
+  color: rgba(var(--centron-gold), 0.42);
+}
+
+/* Едва заметная техническая сетка на фоне карточки */
+
+.faction-card--centron::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.19;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 49.9%,
+      rgba(var(--centron-gold), 0.18) 50%,
+      transparent 50.1%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 49.9%,
+      rgba(var(--centron-gold), 0.12) 50%,
+      transparent 50.1%
+    );
+  background-size: 48px 48px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 18%,
+    black 82%,
+    transparent
+  );
+}
+
+/* Три концентрических кольца */
+
+.centron-dial {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(var(--centron-gold), 0.15);
+  border-radius: 50%;
+}
+
+.centron-dial--outer {
+  inset: 3%;
+  border-style: dashed;
+  border-width: 1px;
+  border-color: rgba(var(--centron-gold), 0.23);
+  animation: centron-rotate-clockwise 95s linear infinite;
+}
+
+.centron-dial--middle {
+  inset: 15%;
+  border-color: rgba(var(--centron-gold), 0.22);
+  animation: centron-rotate-counter 68s linear infinite;
+}
+
+.centron-dial--inner {
+  inset: 28%;
+  border-style: dotted;
+  border-color: rgba(var(--centron-gold), 0.24);
+  animation: centron-rotate-clockwise 42s linear infinite;
+}
+
+/* Мелкие точные деления по окружности */
+
+.centron-dial::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(var(--centron-gold), 0.42) 0deg 0.35deg,
+    transparent 0.35deg 6deg
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 3px),
+    black calc(100% - 2px)
+  );
+}
+
+.centron-dial--middle::before {
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(var(--centron-gold), 0.55) 0deg 0.5deg,
+    transparent 0.5deg 15deg
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 5px),
+    black calc(100% - 4px)
+  );
+}
+
+/* Контрольные маркеры */
+
+.centron-marker {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border: 1px solid rgba(var(--centron-gold), 0.85);
+  background: rgba(12, 12, 12, 0.95);
+  box-shadow: 0 0 5px rgba(var(--centron-gold), 0.12);
+  transform: translate(-50%, -50%);
+}
+
+.centron-marker--one {
+  left: 50%;
+  top: 3%;
+}
+
+.centron-marker--two {
+  left: 85%;
+  top: 50%;
+}
+
+.centron-marker--three {
+  left: 50%;
+  top: 85%;
+}
+
+/* Короткий импульс при завершении проверки */
+
+.faction-card--centron .centron-precision-field.is-confirmed {
+  opacity: 1;
+}
+
+.faction-card--centron .centron-precision-field.is-confirmed .centron-marker {
+  background: var(--centron-light);
+  box-shadow: 0 0 9px rgba(var(--centron-gold), 0.45);
+}
+
+/* Сканер — включается только на короткое время */
+
+.faction-card--centron .centron-scan {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.faction-card--centron .centron-scan::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(var(--centron-gold), 0.16) 12%,
+    var(--centron-light) 50%,
+    rgba(var(--centron-gold), 0.16) 88%,
+    transparent 100%
+  );
+  box-shadow: 0 0 7px rgba(var(--centron-gold), 0.18);
+}
+
+.faction-card--centron .centron-scan::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(var(--centron-gold), 0.035) 48%,
+    rgba(var(--centron-gold), 0.07) 50%,
+    rgba(var(--centron-gold), 0.025) 52%,
+    transparent 100%
+  );
+}
+
+.faction-card--centron .centron-scan.is-active {
+  opacity: 1;
+}
+
+.faction-card--centron .centron-scan.is-active::before {
+  animation: centron-scan-pass 1.25s cubic-bezier(0.35, 0, 0.25, 1) both;
+}
+
+/* Миниатюрный индикатор внутри рамки эмблемы */
+
+.faction-card--centron .faction-emblem {
+  position: relative;
+}
+
+.faction-card--centron .centron-observer {
+  position: absolute;
+  z-index: 3;
+  right: 8%;
+  top: 8%;
+  width: 13px;
+  height: 13px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.faction-card--centron .centron-observer__ring {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(var(--centron-gold), 0.72);
+  border-radius: 50%;
+}
+
+.faction-card--centron .centron-observer__arm {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 5px;
+  background: var(--centron-light);
+  transform-origin: 50% 0;
+  transform: rotate(0deg);
+}
+
+.faction-card--centron .centron-observer__hub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--centron-light);
+  transform: translate(-50%, -50%);
+}
+
+.faction-card--centron .centron-observer.is-alert {
+  opacity: 1;
+}
+
+.faction-card--centron .centron-observer.is-alert .centron-observer__ring {
+  border-color: var(--centron-light);
+  box-shadow: 0 0 5px rgba(var(--centron-gold), 0.32);
+}
+
+/* Сдержанная реакция на наведение */
+
+.faction-card--centron:hover .centron-precision-field {
+  opacity: 0.88;
+}
+
+.faction-card--centron:hover .centron-dial {
+  border-color: rgba(var(--centron-gold), 0.3);
+}
+
+/* Анимации */
+
+@keyframes centron-rotate-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes centron-rotate-counter {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes centron-scan-pass {
+  0% {
+    top: -1px;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Уважение системной настройки уменьшения движения */
+
+@media (prefers-reduced-motion: reduce) {
+  .faction-card--centron .centron-dial {
+    animation: none;
+  }
+
+  .faction-card--centron .centron-scan.is-active::before {
+    animation-duration: 0.3s;
+  }
+}
+
+/* ==================================================
+   CENTRON — EMBLEM LIGHT
+   ================================================== */
+
+.faction-card--centron .faction-emblem {
+  border-color: rgba(218, 166, 78, 0.65);
+  box-shadow:
+    0 0 7px rgba(218, 166, 78, 0.12),
+    inset 0 0 8px rgba(218, 166, 78, 0.07);
+
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.5s ease;
+}
+
+.faction-card--centron .faction-emblem img {
+  filter: drop-shadow(0 0 3px rgba(218, 166, 78, 0.24));
+
+  transition: filter 0.5s ease;
+}
+
+/* Лёгкое усиление при наведении */
+
+.faction-card--centron:hover .faction-emblem {
+  border-color: rgba(242, 212, 154, 0.9);
+
+  box-shadow:
+    0 0 10px rgba(218, 166, 78, 0.2),
+    inset 0 0 10px rgba(218, 166, 78, 0.1);
+}
+
+.faction-card--centron:hover .faction-emblem img {
+  filter: drop-shadow(0 0 5px rgba(242, 212, 154, 0.4));
+}
+
+/* Короткий импульс во время сканирования */
+
+.faction-card--centron:has(.centron-scan.is-active) .faction-emblem {
+  border-color: rgba(255, 224, 163, 0.95);
+
+  box-shadow:
+    0 0 12px rgba(218, 166, 78, 0.28),
+    0 0 24px rgba(218, 166, 78, 0.1),
+    inset 0 0 12px rgba(218, 166, 78, 0.12);
+}
+
+.faction-card--centron:has(.centron-scan.is-active) .faction-emblem img {
+  filter: drop-shadow(0 0 6px rgba(255, 218, 145, 0.48));
+}

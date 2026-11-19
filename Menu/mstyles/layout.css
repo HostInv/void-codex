@@ -1,0 +1,63 @@
+/* ==================================================
+   VOID CODEX — LAYOUT
+   Расположение элементов страницы
+   ================================================== */
+
+/* Размеры главного меню */
+:root {
+  --content-width: 540px;
+  --button-height: 76px;
+  --menu-gap: 16px;
+
+  --emblem-size: 100px;
+  --button-number-size: 23px;
+  --button-label-size: 15px;
+}
+.main-screen {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  padding: clamp(28px, 5vh, 52px) 20px 26px;
+}
+
+/* Нижняя подпись */
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  width: 100%;
+  max-width: var(--content-width, 440px);
+
+  margin-top: auto;
+  padding-top: 44px;
+}
+
+.site-footer p {
+  flex-shrink: 0;
+  margin: 0;
+
+  color: var(--color-muted);
+
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+.footer-line {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 1px;
+
+  background: var(--color-acid-dim);
+}

@@ -1,0 +1,228 @@
+/* ==================================================
+   VOID CODEX — FACTION CARDS
+   ================================================== */
+
+/* Основа карточки */
+.faction-card {
+  --faction-color: var(--color-acid);
+  --faction-tint: rgba(231, 255, 50, 0.06);
+
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--faction-color) 48%, transparent);
+  background: rgba(8, 10, 8, 0.96);
+  transition: border-color 180ms ease;
+}
+
+/* Цвета фракций */
+
+/* ЦЕНТРОН — золото */
+.faction-card--centron {
+  --faction-color: #e6a33b;
+  --faction-tint: rgba(230, 163, 59, 0.07);
+}
+
+/* КОРРАПТ — красный */
+.faction-card--corrupt {
+  --faction-color: #ed414b;
+  --faction-tint: rgba(237, 65, 75, 0.07);
+}
+
+/* ВЕЙРОН — монохром с холодным синим светом */
+.faction-card--veyron {
+  --faction-color: #d4d9d4;
+  --faction-tint: rgba(65, 145, 255, 0.08);
+}
+
+/* ФРОНТИР — фиолетовый космос */
+.faction-card--frontier {
+  --faction-color: #a46bff;
+  --faction-tint: rgba(164, 107, 255, 0.07);
+}
+
+/* Нажимаемая часть карточки */
+.faction-toggle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 230px auto;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+
+  width: 100%;
+  min-height: 320px;
+  padding: 18px;
+  border: 0;
+  background: transparent;
+
+  color: var(--color-white);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faction-toggle:hover,
+.faction-toggle:focus-visible,
+.faction-card.is-open .faction-toggle {
+  background: var(--faction-tint);
+}
+
+.faction-toggle:focus-visible {
+  outline: 1px solid var(--faction-color);
+  outline-offset: -4px;
+}
+
+/* Название и девиз фракции */
+
+.faction-heading {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-width: 0;
+  text-align: center;
+}
+
+.faction-name {
+  color: var(--faction-color);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.faction-motto {
+  color: #c3c9ba;
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+/* Стрелка раскрытия */
+.faction-chevron {
+  grid-column: 1;
+  justify-self: end;
+  grid-row: 2;
+  align-self: center;
+
+  width: 10px;
+  height: 10px;
+  border-right: 1.5px solid var(--faction-color);
+  border-bottom: 1.5px solid var(--faction-color);
+
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.faction-card.is-open .faction-chevron {
+  transform: translateY(3px) rotate(225deg);
+}
+
+/* Раскрывающаяся часть */
+.faction-details {
+  padding: 0 18px 18px;
+}
+
+.faction-details[hidden] {
+  display: none;
+}
+
+.faction-details p {
+  margin: 0 0 20px;
+  color: #d0d5ca;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Кнопка перехода */
+.faction-enter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+
+  border: 1px solid var(--faction-color);
+  background: var(--faction-tint);
+  color: var(--faction-color);
+
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-decoration: none;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.faction-enter:hover,
+.faction-enter:focus-visible {
+  background: var(--faction-color);
+  color: #050606;
+}
+
+.faction-enter:focus-visible {
+  outline: 1px solid var(--color-white);
+  outline-offset: 3px;
+}
+
+/* Наведение на карточку */
+@media (hover: hover) and (pointer: fine) {
+  .faction-card:hover {
+    border-color: var(--faction-color);
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 700px) {
+  .faction-toggle {
+    grid-template-rows: 190px auto;
+    min-height: 270px;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .faction-heading {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .faction-name {
+    font-size: 16px;
+  }
+
+  .faction-motto {
+    font-size: 9px;
+  }
+
+  .faction-details {
+    padding: 0 14px 16px;
+  }
+
+  .faction-details p {
+    font-size: 13px;
+  }
+}
+
+/* Доступность: отключение анимации */
+@media (prefers-reduced-motion: reduce) {
+  .faction-card,
+  .faction-chevron,
+  .faction-enter {
+    transition: none;
+  }
+}

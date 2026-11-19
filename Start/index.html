@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050606" />
+
+    <title>VOID CODEX — Начало</title>
+
+    <!-- Общие стили сайта -->
+    <link rel="stylesheet" href="../Shared/styles/global.css" />
+
+    <!-- Стили страницы -->
+    <link rel="stylesheet" href="./sstyles/start.css" />
+    <link rel="stylesheet" href="./sstyles/start-intro.css" />
+    <link rel="stylesheet" href="./sstyles/start-navigation.css" />
+  </head>
+
+  <body>
+    <!-- Общий фон VOID CODEX -->
+    <div class="world-background" aria-hidden="true"></div>
+
+    <main class="start-screen">
+      <!-- Вступительная часть -->
+      <header class="start-intro">
+        <span class="start-overline">VOID CODEX / ARCHIVE ACCESS</span>
+
+        <h1 class="start-title">НАЧАЛО</h1>
+
+        <p class="start-subtitle">
+          Четыре направления. Единый Кодекс. Добро пожаловать в Цифровую Бездну.
+        </p>
+      </header>
+
+      <!-- Центральная композиция -->
+      <section class="start-interface">
+        <!-- Левая верхняя панель -->
+        <a class="start-nav-card start-nav-card--identity" href="./Whoami">
+          <span class="start-nav-top">
+            <span class="start-nav-index">01</span>
+            <span class="start-nav-label">ACCESS</span>
+          </span>
+
+          <span class="start-nav-title">КТО Я?</span>
+
+          <span class="start-nav-description">
+            <span class="start-nav-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="3.5" />
+                <path d="M5 21c0-4 2.8-6.5 7-6.5s7 2.5 7 6.5" />
+              </svg>
+            </span>
+            Путь участника
+          </span>
+        </a>
+
+        <!-- Правая верхняя панель -->
+        <a class="start-nav-card start-nav-card--history" href="./Archive">
+          <span class="start-nav-top">
+            <span class="start-nav-index">02</span>
+            <span class="start-nav-label">ARCHIVE</span>
+          </span>
+
+          <span class="start-nav-title">ПРЕДЫСТОРИЯ</span>
+
+          <span class="start-nav-description">
+            <span class="start-nav-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3.5 2" />
+              </svg>
+            </span>
+            История мира
+          </span>
+        </a>
+
+        <!-- Центральное знамя -->
+        <div class="start-emblem">
+          <div class="start-emblem-frame">
+            <img
+              class="start-emblem-image"
+              src="./images/VC.png"
+              alt="Общее знамя VOID CODEX"
+            />
+
+            <!-- Декоративные эффекты поверх эмблемы -->
+
+            <div class="start-emblem-effects" aria-hidden="true">
+              <span class="emblem-energy-core"></span>
+
+              <span class="emblem-ray emblem-ray--centron"></span>
+              <span class="emblem-ray emblem-ray--corrupt"></span>
+              <span class="emblem-ray emblem-ray--veyron"></span>
+              <span class="emblem-ray emblem-ray--frontier"></span>
+
+              <span class="emblem-final-pulse"></span>
+            </div>
+          </div>
+
+          <span class="start-emblem-caption"> VOID CODEX </span>
+        </div>
+
+        <!-- Левая нижняя панель -->
+        <a class="start-nav-card start-nav-card--abyss" href="./Void">
+          <span class="start-nav-top">
+            <span class="start-nav-index">03</span>
+            <span class="start-nav-label">SYSTEM</span>
+          </span>
+
+          <span class="start-nav-title">ЦИФРОВАЯ БЕЗДНА</span>
+
+          <span class="start-nav-description">
+            <span class="start-nav-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="2" />
+                <ellipse cx="12" cy="12" rx="10" ry="4" />
+                <ellipse
+                  cx="12"
+                  cy="12"
+                  rx="4"
+                  ry="10"
+                  transform="rotate(45 12 12)"
+                />
+              </svg>
+            </span>
+            Устройство и законы мира
+          </span>
+        </a>
+
+        <!-- Правая нижняя панель -->
+        <a class="start-nav-card start-nav-card--factions" href="./Codex">
+          <span class="start-nav-top">
+            <span class="start-nav-index">04</span>
+            <span class="start-nav-label">CODEX</span>
+          </span>
+
+          <span class="start-nav-title">ЧЕТЫРЕ ФРАКЦИИ</span>
+
+          <span class="start-nav-description">
+            <span class="start-nav-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <path d="m14.5 9.5-2 5-5 2 2-5 5-2Z" />
+                <path d="M12 3v2M21 12h-2M12 21v-2M3 12h2" />
+              </svg>
+            </span>
+            Четыре стороны Кодекса
+          </span>
+        </a>
+      </section>
+
+      <!-- Возвращение в главное меню -->
+      <footer class="start-footer">
+        <a class="start-back-button" href="../"> ← ВЕРНУТЬСЯ В МЕНЮ </a>
+      </footer>
+    </main>
+
+    <!-- Скрипты -->
+    <script src="../Shared/scripts/background.js" defer></script>
+    <script src="./sscripts/start-animation.js" defer></script>
+    <script src="./sscripts/start.js" defer></script>
+  </body>
+</html>
