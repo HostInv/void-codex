@@ -40,3 +40,20 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+/* Скрытие полосы прокрутки без отключения прокрутки */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Internet Explorer */
+body {
+  -ms-overflow-style: none;
+}
