@@ -1,0 +1,83 @@
+/* ==================================================
+   VOID CODEX — FIXED SCREEN LAYOUT
+   Неподвижная верхняя и нижняя зоны
+   Центральная область с прокруткой
+   ================================================== */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Главная оболочка */
+
+.main-screen {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  padding: clamp(12px, 2vh, 24px) 16px;
+
+  overflow: hidden;
+}
+
+/* Верхняя неподвижная зона */
+
+.brand {
+  position: relative;
+  z-index: 2;
+
+  flex-shrink: 0;
+}
+
+/* Центральная прокручиваемая зона */
+
+.main-menu {
+  position: relative;
+  z-index: 2;
+
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+
+.main-menu::-webkit-scrollbar {
+  display: none;
+}
+
+/* Нижняя неподвижная зона */
+
+.site-footer {
+  position: relative;
+  z-index: 2;
+
+  flex-shrink: 0;
+}
+
+/* Уважение настроек уменьшения анимации */
+
+@media (prefers-reduced-motion: reduce) {
+  .main-menu {
+    scroll-behavior: auto;
+  }
+}
