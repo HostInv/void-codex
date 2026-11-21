@@ -1,7 +1,7 @@
 /* ==================================================
    VOID CODEX — FIXED SCREEN LAYOUT
-   Неподвижная верхняя и нижняя зоны
-   Центральная область с прокруткой
+   Верхняя и нижняя зоны неподвижны.
+   Центральная область прокручивается.
    ================================================== */
 
 html,
@@ -13,51 +13,36 @@ body {
   overflow: hidden;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Главная оболочка */
-
 .main-screen {
   position: relative;
   z-index: 2;
 
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
+  justify-items: center;
 
   width: 100%;
   height: 100%;
   min-height: 0;
 
-  padding: clamp(12px, 2vh, 24px) 16px;
+  padding: clamp(28px, 5vh, 52px) 20px 26px;
 
   overflow: hidden;
 }
 
-/* Верхняя неподвижная зона */
-
 .brand {
-  position: relative;
-  z-index: 2;
-
-  flex-shrink: 0;
+  min-height: 0;
+  margin-bottom: 0;
 }
 
-/* Центральная прокручиваемая зона */
-
 .main-menu {
-  position: relative;
-  z-index: 2;
-
   min-height: 0;
+  height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-
   scrollbar-width: none;
 }
 
@@ -65,19 +50,14 @@ body {
   display: none;
 }
 
-/* Нижняя неподвижная зона */
-
 .site-footer {
-  position: relative;
-  z-index: 2;
-
-  flex-shrink: 0;
+  margin-top: 0;
+  padding-top: 20px;
 }
 
-/* Уважение настроек уменьшения анимации */
-
-@media (prefers-reduced-motion: reduce) {
-  .main-menu {
-    scroll-behavior: auto;
+/* Низкие окна */
+@media (max-height: 680px) {
+  .main-screen {
+    padding-top: 16px;
   }
 }

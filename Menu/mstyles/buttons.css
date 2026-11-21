@@ -3,16 +3,33 @@
    Шестигранные кнопки главного меню
    ================================================== */
 
+/* Контейнер кнопок */
 .main-menu {
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   gap: var(--menu-gap);
 
   width: 100%;
   max-width: var(--content-width);
+
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
+/* Скрытие полосы прокрутки */
+.main-menu::-webkit-scrollbar {
+  display: none;
+}
+
+/* Кнопка */
 .menu-button {
   position: relative;
 
@@ -21,6 +38,8 @@
   align-items: center;
 
   gap: 12px;
+
+  flex: 0 0 var(--button-height);
 
   width: 100%;
   height: var(--button-height);
@@ -57,18 +76,20 @@
   vector-effect: non-scaling-stroke;
 }
 
-/* Меняется цвет, но не геометрия */
+/* Изменение цвета при наведении */
 .menu-button:hover .button-frame path,
 .menu-button:focus-visible .button-frame path {
   fill: rgba(45, 53, 12, 0.96);
   stroke: #f3ff91;
 }
 
+/* Фокус клавиатуры */
 .menu-button:focus-visible {
   outline: 1px solid var(--color-acid);
   outline-offset: 4px;
 }
 
+/* Номер кнопки */
 .button-number {
   color: var(--color-acid);
 
@@ -79,6 +100,7 @@
   text-align: center;
 }
 
+/* Название кнопки */
 .button-label {
   min-width: 0;
 
@@ -91,7 +113,7 @@
   text-transform: uppercase;
 }
 
-/* CSS-стрелка: центрирована независимо от шрифта */
+/* Стрелка */
 .button-arrow {
   display: flex;
   align-items: center;
@@ -100,7 +122,6 @@
   width: 24px;
   height: 100%;
 
-  /* Скрываем старый текстовый символ › */
   font-size: 0;
 }
 
@@ -116,12 +137,13 @@
   transform: translateX(-2px) rotate(45deg);
 }
 
-/* Подсветка при наведении */
+/* Подсветка текста */
 .menu-button:hover .button-label,
 .menu-button:focus-visible .button-label {
   color: #ffffff;
 }
 
+/* Подсветка стрелки */
 .menu-button:hover .button-arrow::before,
 .menu-button:focus-visible .button-arrow::before {
   border-color: #f3ff91;
